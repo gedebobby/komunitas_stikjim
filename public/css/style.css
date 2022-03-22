@@ -1,0 +1,80 @@
+.page-content {
+  margin-top: 50px;
+  padding: 50px 100px;
+  background-color: rgba(255, 255, 255, 0.774);
+  border-radius: 20px;
+}
+
+.navbar-dk {
+  background-color: #1976d2 !important;
+}
+
+.navbar .navbar-brand {
+  font-size: 30px;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #ffff !important;
+  font-size: 16px;
+  margin: 0 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: rgb(66, 66, 66) !important;
+  font-size: 16px;
+}
+
+.jumbotron {
+  background-image: url(../img/cover1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 550px;
+}
+
+.container .display-4 {
+  margin-top: 150px;
+  font-weight: bold;
+}
+
+.container .display-4,
+.container .lead {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  color: #ffff;
+}
+
+.container .judul {
+  color: rgb(0, 0, 0);
+}
+
+.judul .calendar {
+  font-size: 50px;
+}
+
+.event-page {
+  margin-bottom: 100px;
+}
+
+.page-kegiatan {
+  background-image: url(../img/cover-kegiatan.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* height: 1000px; */
+  padding-bottom: 50px;
+}
+
+.page-kegiatan .container .judul-kegiatan {
+  padding-top: 70px;
+}
+
+.form-regis {
+  height: 100vh;
+  /* background-color: #ffff; */
+  padding-top: 100px;
+}
+
+footer {
+  padding: 20px 0;
+  font-weight: bold;
+}
