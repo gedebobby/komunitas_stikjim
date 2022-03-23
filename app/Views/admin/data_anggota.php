@@ -145,16 +145,7 @@
                         echo "<option value='" . $ang->id_angkatan ."'>" . $ang->tahun_angkatan . "</option>";
                       } ?>
                       </select>
-                    </div>
-					<div class="form-group">
-                      <label for="edit-penyelenggara">Komunitas</label>
-                      <select class="select2 form-select shadow-none" name="id_komunitas" id="edit-komunitas-anggota">
-                      <option class="font-weight-bold">Pilih Komunitas</option> 
-                      <?php foreach ($komunitas as $e ) {
-                        echo "<option value='" . $e->id_komunitas ."'>" . $e->nama_komunitas . "</option>";
-                      } ?>
-                      </select>
-                    </div>
+                    </div>					
 					<div class="form-group">
 						<label for="no-ponsel">No Ponsel</label>
 						<input type="text" name="no_ponsel" required class="form-control" id="edit-no-ponsel" placeholder="Masukkan Nomor Telepon">

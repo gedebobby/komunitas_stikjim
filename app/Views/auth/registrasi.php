@@ -176,48 +176,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="row border-secondary">
-                <div class="col-12">
-                  <div class="form-group">
-                    <div class="pt-1 d-grid">
-                      <button class="btn btn-block btn-lg btn-info" type="submit">Registrasi</button>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-            <!-- </form> -->
-          </div>
-        </div>
-        <div class="footer text-center">
-            <a href="/">Sudah Punya Akun? Login disini</a>
-        </div>
-    </div>
-    </div>
-    </div>
-
-    <div class="container d-flex justify-content-center align-item-center">
-    <div class="kotak-form2">
-    <div class="auth-box my-auto border-secondary">
-          <div>
-          <div class="text-center pt-3 pb-3">
-              <h4>Pilih Komunitas</h4>
-            </div>
-            <!-- Form -->
-            <!-- <form class="form-horizontal mt-3" action="/auth/ngetest" method="post"> -->
-              <div class="row pb-4">
-                <div class="col-12 text-center">
-                  <?php
-                  foreach ($komunitas as $k ) : 
-                  ?>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="id_komunitas[]" value="<?= $k->id_komunitas ?>" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                      <?= $k->nama_komunitas ?>
-                    </label>
-                  </div>
-                  <?php endforeach ?>
-                </div>
-              </div>
               <div class="row border-secondary">
                 <div class="col-12">
                   <div class="form-group">
@@ -229,14 +187,15 @@
               </div>
             </form>
           </div>
-        <!-- </div>
+        </div>
         <div class="footer text-center">
             <a href="/">Sudah Punya Akun? Login disini</a>
-        </div> -->
+        </div>
     </div>
     </div>
     </div>
 
+   
     
 
     

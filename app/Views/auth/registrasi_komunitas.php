@@ -42,6 +42,16 @@
         background-color: #fff;
         padding: 3rem 2rem;
         margin-top: 100px;
+        margin-bottom: 50px;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    }
+
+    .kotak-form2 {
+        width: 500px;
+        background-color: #fff;
+        padding: 3rem 2rem;
         margin-bottom: 100px;
         border-radius: 20px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -54,23 +64,33 @@
   </head>
 
   <body>
+
     <div class="container d-flex justify-content-center align-item-center">
     <div class="kotak-form">
-    
-    
     <div class="auth-box my-auto border-secondary">
           <div>
-            <div class="text-center pt-3 pb-3">
+          <div class="text-center pt-3 pb-3">
               <span class="db"
                 ><img src="/img/stikom-bali.png" alt="logo" width="100"
               /></span>
             </div>
-            <?php  echo session()->getFlashdata('msg'); ?>
+          <div class="text-center pt-3 pb-3">
+              <h3>Pilih Komunitas</h3>
+            </div>
             <!-- Form -->
-            <form class="form-horizontal mt-3" action="/auth/daftar" method="post">
+            <!-- <form class="form-horizontal mt-3" action="/auth/ngetest" method="post"> -->
               <div class="row pb-4">
-                <div class="col-12">
-                  
+                <div class="col-12 ml-5">
+                  <?php
+                  foreach ($komunitas as $k ) : 
+                  ?>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="id_komunitas[]" value="<?= $k->id_komunitas ?>" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      <?= $k->nama_komunitas ?>
+                    </label>
+                  </div>
+                  <?php endforeach ?>
                 </div>
               </div>
               <div class="row border-secondary">
@@ -84,16 +104,17 @@
               </div>
             </form>
           </div>
-        </div>
-        <!-- <div class="footer text-center">
+        <!-- </div>
+        <div class="footer text-center">
             <a href="/">Sudah Punya Akun? Login disini</a>
         </div> -->
+    </div>
     </div>
     </div>
 
     
 
-
+    
 
 
 
@@ -138,32 +159,3 @@
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="input-group mb-3">
-                    <select class="form-control <?= ($validasi->hasError('komunitas')) ? 'is-invalid' : '' ; ?>" name="id_komunitas" id="id_komunitas">
-                      <option class="font-weight-bold">Pilih Komunitas</option> 
-                      <?php foreach ($komunitas as $e ) {
-                        echo "<option value='" . $e->id_komunitas ."'>" . $e->nama_komunitas . "</option>";
-                      } ?>
-                    </select>
-                    <div class="invalid-feedback">
-                      <?= $validasi->getError('komunitas') ?>
-                    </div>
-                  </div> -->

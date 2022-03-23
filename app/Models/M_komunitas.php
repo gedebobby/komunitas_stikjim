@@ -79,12 +79,13 @@ class M_komunitas extends Model
     // -------Anggota---------------
     public function getDataAnggota()
     {
-        $builder = $this->db->table('tb_user t');
+        $builder = $this->db->table('tb_anggota t');
         // $builder->select('*');
         // $query = $builder->join('tb_komunitas', 'tb_user.id_komunitas = tb_komunitas.id_komunitas')->get();
 
         $query = $builder->select('*')
-                ->join('tb_angkatan', 't.id_angkatan = tb_angkatan.id_angkatan')
+                // ->join('tb_angkatan', 't.id_angkatan = tb_angkatan.id_angkatan')
+                ->join('tb_user', 't.id_user = tb_user.id_user')
                 ->join('tb_komunitas', 't.id_komunitas = tb_komunitas.id_komunitas')->get();
         
         return $query->getResult();
@@ -92,23 +93,23 @@ class M_komunitas extends Model
 
     public function getAnggotaById($id)
     {
-        $builder = $this->db->table('tb_user')->where('id_user', $id)->get();
+        $builder = $this->db->table('tb_anggota')->where('id_user', $id)->get();
 
         return $builder->getResult();
     }
 
     public function getJumlahAnggota()
     {
-        $builder = $this->db->table('tb_user');
+        $builder = $this->db->table('tb_anggota');
         $builder->select('*');
-        $query = $builder->join('tb_komunitas', 'tb_user.id_komunitas = tb_komunitas.id_komunitas')->countAll();
+        $query = $builder->join('tb_komunitas', 'tb_anggota.id_komunitas = tb_komunitas.id_komunitas')->countAll();
         
         return $query;
     }
 
     public function getJumlahAnggotaKomunitas($idkomunitas)
     {
-        $builder = $this->db->table('tb_user')->where('id_komunitas', $idkomunitas);
+        $builder = $this->db->table('tb_anggota')->where('id_komunitas', $idkomunitas);
         
         return $builder->CountAllResults();
     }
@@ -121,12 +122,13 @@ class M_komunitas extends Model
 
         $query = $this->db->query("
         SELECT *
-        FROM tb_user
-        INNER JOIN tb_komunitas ON tb_user.id_komunitas = tb_komunitas.id_komunitas
+        FROM tb_anggota
+        INNER JOIN tb_komunitas ON tb_anggota.id_komunitas = tb_komunitas.id_komunitas
+        INNER JOIN tb_user ON tb_anggota.id_user = tb_user.id_user
         INNER JOIN tb_angkatan ON tb_user.id_angkatan = tb_angkatan.id_angkatan
         WHERE tb_komunitas.id_komunitas = $idkomunitas
         ");
-
+        
         return $query->getResult();
     }
 

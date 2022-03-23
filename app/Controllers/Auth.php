@@ -124,22 +124,18 @@ class Auth extends BaseController
             return redirect()->to('/auth/registrasi')->withInput();
         }
 
-        $jml = count($_POST['id_komunitas']);
-
-        for ($i=0; $i < $jml; $i++) { 
-
             $data = [
                 'nama' => htmlSpecialchars($this->request->getPost('nama')),
                 'nim' => htmlSpecialchars($this->request->getPost('nim')),
                 'id_angkatan' => htmlSpecialchars($this->request->getPost('id_angkatan')),
-                'id_komunitas' => htmlSpecialchars($this->request->getPost('id_komunitas')[$i]),
+                // 'id_komunitas' => htmlSpecialchars($this->request->getPost('id_komunitas')[$i]),
                 'email' => htmlSpecialchars($this->request->getPost('email')),
                 'password' => Hash::hash($this->request->getPost('password')),
                 'no_ponsel' => htmlSpecialchars($this->request->getPost('no_ponsel'))            
             ];
 
             $save = $this->Muser->save($data);
-        }
+        
 
         // $data = [
         //     'nama' => htmlSpecialchars($this->request->getPost('nama')),
@@ -162,7 +158,7 @@ class Auth extends BaseController
             </button>
           </div>');
 
-          return redirect()->to('/auth');
+          return redirect()->to('/auth/registrasi_komunitas');
             
         } else {
             session()->setFlashdata('msg', '<div class="alert alert-danger" role="alert">
@@ -171,6 +167,20 @@ class Auth extends BaseController
 
           return redirect()->to('/auth/registrasi');
         }
+    }
+
+    public function registrasi_komunitas()
+    {
+        $komunitas = $this->Mkomunitas->getDataKomunitas();
+        $angkatan = $this->Mkomunitas->getDataAngkatan();
+        $data = [
+            'judul' => 'Registrasi',
+            'validasi' => $this->validasi,
+            'komunitas' => $komunitas,
+            'angkatan' => $angkatan
+        ];
+
+        return view('auth/registrasi_komunitas', $data);
     }
 
     public function login_user()

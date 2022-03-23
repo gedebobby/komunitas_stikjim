@@ -495,6 +495,8 @@ class Admin extends BaseController
             
             $anggota = $this->Mkomunitas->getDataAnggota();
 
+
+
         } elseif (session()->get('role') == 'koordinator') {
             
             $idkomunitas = session()->get('id_komunitas');
@@ -564,6 +566,7 @@ class Admin extends BaseController
             "nim" => htmlSpecialchars($this->request->getPost('nim_anggota')),
             "no_ponsel" => htmlSpecialchars($this->request->getPost('no_ponsel')),
             "email" => htmlSpecialchars($this->request->getPost('email')),
+            "id_angkatan" => htmlSpecialchars($this->request->getPost('id_angkatan')),
             "password" => htmlSpecialchars($this->request->getPost('password'))
         ];
 
@@ -600,11 +603,14 @@ class Admin extends BaseController
 
     public function deleteAnggota($id_user)
     {
+        $idkomunitas = session()->get('id_komunitas');
+
         $where = [
-            "id_user" => $id_user
+            "id_user" => $id_user,
+            'id_komunitas' => $idkomunitas
         ];
 
-        $add = $this->Mkomunitas->hapusAnggota("tb_user", $where);
+        $add = $this->Mkomunitas->hapusAnggota("tb_anggota", $where);
 
         if($add){
             session()->setFlashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">
